@@ -1,0 +1,35 @@
+:root {                 /* VARIABILI CSS -> ci semplificano la vita
+                            - manipolabili con js
+                            - SINTAX -> :root
+                            - richiamiamo con 'var(--nomeVariab)' */
+    --base: #bada55;
+    --spacing:10px;
+    --blur: 10px; 
+}
+
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+}
+
+.hl {
+    color: var(--base);
+}
+
+body {
+    text-align: center;
+    background: #193544;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 50px;
+}
+
+.controls {
+    margin-bottom:50px;
+}
+
+input {
+    width:100px;
+}

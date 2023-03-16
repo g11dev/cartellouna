@@ -1,0 +1,12 @@
+ 
+ 
+ SPIEGAZIONI
+ - DEFER -> https://www.evemilano.com/async-defer/
+
+
+ EFFETTI
+ - Vetro opaco -> https://hype4.academy/tools/glassmorphism-generator 
+ 
+ 
+ TRICKS
+ - SCRIVERE + VELOCE HTML -> https://docs.emmet.io/cheat-sheet/ 
