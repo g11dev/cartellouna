@@ -8,6 +8,8 @@ app.set('view engine', 'ejs');                      // dichiariamo che volgiamo 
 app.use(express.static(__dirname +'/public'))        // express.static -> uso per indicare cartella che contiene oggetti statici che poi userò
  //__dirname -> variabile globale presente in node che ci indica la cartella in cui stiamo lavorando
 app.use(express.json());                            //il corpo delle nostre API è in json
+
+app.use(express.urlencoded( { extended: true}));
 app.use('/api/v1/library', library);                //percorso in cui ritroviamo il tutto (basta cambiare numero alla v)
 
 
@@ -18,6 +20,10 @@ app.get('/', (req, res) => {
 
 app.get('/libri', (req, res) => {
     res.render('pages/libri');              //alla richiesta '/libri' reinderizzo la pagina html
+})
+
+app.get('/aggiungi-libro', (req,res) => {
+    res.render('pages/aggiungi-libro');
 })
 
 app.listen(3000, () => {                    //avviamo il nostro webServer e scegliamo il numero di porta (usiamo la 3000)(ricordarsi che alcune porte sono già occupate da altri db tipo sql, mongodb (3036))

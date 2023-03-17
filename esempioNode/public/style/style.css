@@ -34,3 +34,48 @@ box {
     font-size: 30px;
     font-weight: 600;
 }
+
+/* .libri {
+    display: grid;
+    grid-template-columns: 1fr 33%;
+    gap: 24px;
+} */
+
+.libri main {
+    padding: 24px;
+}
+
+.libri aside {
+    padding: 16px;
+    border-left: 1px solid #ccc;
+}
+
+.libri aside h4 {
+    margin-top: 0;
+}
+
+.libri aside input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/*LA SOLUZIONE è NEL GRID -> INDAGA */
+
+.libri .libreria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.libro img {
+    width: 100%;
+}
+.thumbnail {
+    overflow: hidden;
+}
+.thumbnail img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}

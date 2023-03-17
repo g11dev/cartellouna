@@ -6,13 +6,28 @@ const util = require('./util');
 const router = express.Router();
 const mysql = require('./db');
 const libraryDb = new mysql.Db('127.0.0.1', 'root', '', 'dbdevid');            //usiamo porta 3306 perchè std di sql
+const multer = require('multer'); //dopo aver fatto "npm i multer"
 
-router.post('/', (req, res) => {                //con post possiamo mandare payload -> è un JSON
+const storage = multer.diskStorage( {   //in questo modo rendiamo l'immagine leggile dal linguaggio fornito da multer
+    destination: function ( req, file, cb ) {
+        cb( null, 'public/uploads/' );
+    },
+    filename: function ( req, file, cb ) {
+        let extArray = file.mimetype.split( "/" );
+        let extension = extArray[extArray.length - 1];
+        cb( null, file.fieldname + '-' + Date.now() + '.' + extension );
+    }
+} );
+const upload = multer( { storage: storage } );
+
+
+router.post('/', upload.single('foto'), (req, res) => {                //con post possiamo mandare payload -> è un JSON
     //req -> request (li manda il router di express)
     //res -> risposta (li manda il router di express)
-    const { isbn, title } = req.body;
+    const { isbn, title, descrizione } = req.body;
+    const {filename} =req.file;
     // con '?' -> aumneto la sicurezza perchè consegno dati dall'esterno
-    libraryDb.connection.query(`INSERT INTO lubri (isbn, title) VALUES (?, ?)`, [isbn, title],function (error, results, fields) { //function -> metodo query dato da dipendenza installata da mysql, accetta parametri: 1° query, 2°call back function -> chaiamta quando avviene errore 
+    libraryDb.connection.query(`INSERT INTO lubri (isbn, title,foto,descrizione) VALUES (?,?,?,?)`, [isbn, title,filename,descrizione],function (error, results, fields) { //function -> metodo query dato da dipendenza installata da mysql, accetta parametri: 1° query, 2°call back function -> chaiamta quando avviene errore 
         //error -> se query sbagliata
         //results -> risultati della query 
         //fields- > campi modificati
@@ -64,7 +79,7 @@ router.get('/:id', async (req, res) => {                  // '/' -> indica cosa 
 router.put('/:id', async (req, res) => {
     const { isbn, title } = req.body;
     const { id } = req.params;
-    libraryDb.connection.query(`UPDATE lubri SET isbn='${isbn}', title='${title}' WHERE ID = '${id}'`, function (error, results, fields) {
+    libraryDb.connection.query(`UPDATE lubri SET isbn='${isbn}', title='${title}', foto='${foto}', descrizione ='${descrizione}' WHERE ID = '${id}'`, function (error, results, fields) {
         if (error) {
             req.send({ success: false, reason: error.message })
         } else {

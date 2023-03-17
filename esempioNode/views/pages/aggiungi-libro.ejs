@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partial/head.ejs'); %>
+    <title>Document</title>
+    <script src= "js/upload.js" defer></script>
+</head>
+
+<body>
+    <%- include('../partial/header.ejs'); %>
+
+    <main> 
+        <form enctype="multipart/form-data">    <!-- roba magica diversa da json per importare dati-->
+            
+            <div class="input-group">
+                <label for="isbn"> ISBN </label>
+                <input type="text" name="isbn" id="isbn" required/>
+            </div>
+
+            <div class="input-group">
+                <label for="title"> Titolo </label>
+                <input type="text" name="title" id="title" required/>
+            </div>
+
+            <div class="input-group">
+                <label for="descrizione"> Descrizione </label>
+                <textarea name="descrizione" id="descrizione" cols="30" raws="10"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="foto"> Foto </label>
+                <input type="file" name="foto" id="foto" />
+            </div>
+
+            <input type="submit" value="Aggiungi Libro"/>
+
+
+        </form>
+
+    </main>
+
+    <%- include('../partial/footer.ejs'); %>
+</body>
+</html>
