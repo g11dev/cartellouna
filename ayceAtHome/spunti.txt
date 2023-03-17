@@ -2,6 +2,9 @@
  
  SPIEGAZIONI
  - DEFER -> https://www.evemilano.com/async-defer/
+ 
+ DOCUMENTAZIONI
+ - TIPI EVENTI -> https://developer.mozilla.org/en-US/docs/Web/Events
 
 
  EFFETTI
@@ -10,3 +13,4 @@
  
  TRICKS
  - SCRIVERE + VELOCE HTML -> https://docs.emmet.io/cheat-sheet/ 
+ - SHIFT + ALT + F -> indentazione automatica

@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partial/head.ejs'); %>
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partial/header.ejs'); %> <!-- inserisco il percorso relativo del file 'header', per renderlo parte della pagina html -->
+    <main>
+        <section class="hero">
+            <h1>Bella raga, benvenuti nella mia libreria </h1>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi reiciendis deleniti neque atque earum ex accusantium animi ipsam, nemo ducimus possimus illum, repellat iste, quas natus eius saepe recusandae quidem?
+            </p>
+            <a href="/libri"> Scopri i miei fantastici libri!!</a>
+        </section>
+    </main>
+
+    <ul class ="library"> </ul>
+    <script>
+        const library = document.querySelector('.library');
+        fetch('http://localhost:3000/api/v1/library')
+            .then(response => response.json())
+            .then(data => {
+                const books = data.results.map(book => {
+                    return `
+                    <li> ${book.title} </li> 
+                    ` //book."campo proveniente da sql"
+                }).join('');
+                library.innerHTML = books;
+            })
+    </script>
+    <%- include('../partial/footer.ejs'); %>
+</body>
+
+</html>

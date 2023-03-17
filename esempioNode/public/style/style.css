@@ -1,0 +1,36 @@
+box {
+    box-sizing: border-box;
+}
+
+*,*::before, *::after {
+    box-sizing: inherit;
+}
+
+
+.logo img {
+    width: 70px;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.site-header nav ul {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    padding: 0;
+    margin:0;
+    list-style: none;
+}
+
+.site-header nav ul a {
+    text-decoration: none;
+    color: green;
+    font-size: 30px;
+    font-weight: 600;
+}
