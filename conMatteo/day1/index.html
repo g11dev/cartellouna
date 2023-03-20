@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Progetto 1</h1>
+    <!-- id -> ci servirà per dire a View di portarsi li-->
+    <p>qua {{name}} non funziona perchè fuori da Vue</p>
+    <div id="vueApp">
+        <h2>
+            {{ getFullName() }} <!-- se usiamo () -> cerca un metodo [da methods]   -->
+            {{ fullName }} <!-- senza -> oggetto [da computed]    -->
+        </h2>
+        <input type="button" value="Cambia nome" @click="setName('Franco')">
+        <!-- <input type="button" value="Cambia nome" v-on:click = "setName('Franco')" > -->
+        <!-- "v-on" = attributo tipico di Vue per dire su quale evento vuoi iscriverti-->
+        <!-- v-on:azione ="metodo"       -> MAI SPAZIO DOPO 'v-on'-->
+        <!-- ad oggi si rimpiazza tutto con "@" -->
+        <!-- @: ascolti eventi emessi dal componente (div, input,...)-->
+
+        <div>
+            <input type="button" value="Toggle" @click="toggleInput()">
+        </div>
+
+        <label v-if="!isInputEnabled">
+            <!-- v-if=attivare e disattivare (con commento) -->
+            <!-- v-show=mostrare e nascondere (senza commento)--> <!-- come ad esempio articoli... vedi di più-->
+            Input:
+            <input type="text">
+            <!-- <input type="text" v-bind:disabled ="isInputEnabled"> -->
+            <!-- v-bind = opposto del v-on (ascolta e applica modifica su ciò che noi ci bindiamo)-->
+            <!-- a oggi si rimpiazza con ":"-->
+            <!-- ":"fili marionetta con cui puoi comandare quel componente -->
+
+        </label>
+
+        <div>
+            <label for="">
+                Età
+                <input type="number" v-model="age">
+                <!-- "v-model" -> ascolta @input e va ad inserire il valore nella variabile "age" -->
+                <!-- peremete di interragire 2wayBinding (sia input che output) -->
+                <!-- <input type="number" @input="age = $event.target.value" :value="age"> -->
+                <!-- con @input -> si crea "$event" che contiene tutte le cose scritte dentro ->  -->
+            </label>
+
+        </div>
+
+
+        <div>
+            {{age}}
+        </div>
+
+        <input type="button" value="Reset età" @click="age=0">
+        <!-- in questo modo resetto SOLO la variabile "age" -->
+        <!-- BINDING -> associare esecuzione di codice a degli eventi -->
+
+        <label>
+            Genere:
+            <select>
+                <!-- PER CREARE PARTE SOTTO-->
+                <option v-for="(gender,index) in genderList" :key="index" :value="gender.value"> {{ gender.label }}</option>
+                <!-- con ":" MODIFICO il valore value (posso gestirlo dinamicamente)-->
+                <!-- :key -> serve per poter avere info da usare in css-->
+                    <!-- v-for -> ciclo per iterare lista (e in questo caso creare piu elementi option (come nelle righe sotto))  -->
+                    
+
+
+                <!-- <option value="M">Maschio</option> -->
+                <!-- <option value="F">Femmina</option> -->
+                <!-- <option value="A">Altro</option> -->
+                <!-- spostiamo questi valori in "data()" -->
+            </select>
+        </label>
+
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- CDN (content delivery network)-->
+    <!-- quando importiamo cdn, VUE è oggetto, con le sue fz 
+    - fz createApp() {} 
+    - Vue.createApp() -> per richiamare debito
+    - const { createApp } = Vue; -> quello che ne uscirà, sarà una costante; 
+    = const createApp = Vue createApp;
+    - {} -> operatore di destrutturazione, di tutto l'oggetto view, voglio prendere solo le 'proprietà' che mi servono, che possono essere valori, variabili, method
+    - createApp -> diventa una variabile come se fosse definita una const
+-->
+
+    <!-- quando cerco problemi online, controllare sia in View 3-->
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    isInputEnabled: false, //per convenzione, nomi variabiliBooleani iniziano con "is"
+                    name: "Pippo",
+                    cognome: "Pluto",
+                    age: 0,
+                    genderList: [
+                        {id:1, label:"Maschio", value:'M'},
+                        {id:2, label:"Femmina", value:'F'},
+                        {id:3, label:"Altro", value:'A'}
+                        
+                    ]
+                }
+            },
+            methods: {
+                getFullName() {
+                    return `${this.name} ${this.cognome}`;
+                    //senza 'this' -> non stampa un cazzo perchè non esce dallo scope per cercare il valore
+                },
+                setName(name) {
+                    this.name = name;
+                },
+                toggleInput() {
+                    this.isInputEnabled = !this.isInputEnabled;     //così viene sempre la condizione opposta a quella attuale 
+                }
+            },
+            computed: {
+                fullName() {
+                    return `${this.name} ${this.cognome}`;
+                }
+            },
+
+
+
+
+
+
+
+        }).mount('#vueApp');     // gia solo così abbiamo creato un app Vue
+                            // vueApp -> SELETTORE dentro div
+
+    </script>
+
+</body>
+
+</html>
