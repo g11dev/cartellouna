@@ -5,23 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Esercizio 1 senza bottone</title>
 
 </head>
 
 <body>
 
     <div id="vueApp">
-        <h1> {{getFullName}} </h1>
         <!-- id -> ci servirà per dire a View di portarsi li-->
-
-        <!-- form method="get" @submit.prevent="computeFullname()" -> metodo alternativo -->
+        <h2> {{nome}} {{cognome}}</h2>
         <form>
-            <label for="">Nome:</label>
-            <input type="text" v-model="nome">
-            <label for="">Cognome:</label>
-            <input type="text" v-model="cognome">
+
+            <div>
+                <label for="">Nome:
+                    <input id="nome" type="text" @input="nome">
+                </label>
+            </div>
+            <div>
+                <label for="">Cognome:
+                    <input id="cognome" type="text" v-model="cognome">
+                </label>
+            </div>
             <input type="button" value="stampa" @click="stampaNome()">
+            
         </form>
 
 
@@ -37,22 +43,15 @@
                     nome: "",
                     cognome: "",
                 }
-
             },
             methods: {
-                stampaNome() {
-                    this.name = name;
-                    this.cognome = cognome;
-
-                },
-
-            },
-            computed: {
-                fullName() {
-                    return `${this.name} ${this.cognome}`;
+                    stamapNome(nome, cognome) {
+                        this.nome =nome;
+                        this.cognome = cognome;
+                    }
                 }
             },
-        }).mount('#vueApp');    
+        ).mount('#vueApp');    
     </script>
 
 </body>

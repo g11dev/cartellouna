@@ -46,7 +46,7 @@
                 Età
                 <input type="number" v-model="age">
                 <!-- "v-model" -> ascolta @input e va ad inserire il valore nella variabile "age" -->
-                <!-- peremete di interragire 2wayBinding (sia input che output) -->
+                <!-- permette di interragire 2wayBinding (sia input che output) -->
                 <!-- <input type="number" @input="age = $event.target.value" :value="age"> -->
                 <!-- con @input -> si crea "$event" che contiene tutte le cose scritte dentro ->  -->
             </label>
@@ -86,8 +86,7 @@
     <!-- quando importiamo cdn, VUE è oggetto, con le sue fz 
     - fz createApp() {} 
     - Vue.createApp() -> per richiamare debito
-    - const { createApp } = Vue; -> quello che ne uscirà, sarà una costante; 
-    = const createApp = Vue createApp;
+    - const { createApp } = Vue; -> quello che ne uscirà, sarà una costante;   === const createApp = Vue createApp;
     - {} -> operatore di destrutturazione, di tutto l'oggetto view, voglio prendere solo le 'proprietà' che mi servono, che possono essere valori, variabili, method
     - createApp -> diventa una variabile come se fosse definita una const
 -->
@@ -127,11 +126,6 @@
                     return `${this.name} ${this.cognome}`;
                 }
             },
-
-
-
-
-
 
 
         }).mount('#vueApp');     // gia solo così abbiamo creato un app Vue
