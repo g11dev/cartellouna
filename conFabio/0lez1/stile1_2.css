@@ -1,0 +1,35 @@
+
+div{
+    width: 100px;
+    height: 100px;
+}
+
+
+div#rosso {
+    background-color: red;
+    display: inline-block;      /* tutte le cose che sono in std in blocco, vanno in linea con loro */ 
+}
+
+#verde {
+    background-color: green;
+    display: inline-block;
+
+}
+
+#rosa {
+    background-color: purple;
+    display: inline-block;
+}
+
+#blu {
+    background-color: blue;
+    margin-top: 10px;
+
+}
+
+#container {
+    width:100%;
+    border: 6px solid red;
+    /* margin: 0;
+    padding: 0; */
+}

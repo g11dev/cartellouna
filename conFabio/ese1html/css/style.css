@@ -1,0 +1,58 @@
+*{              
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* inserisco gerarchicamente i font e inserisce nel sito il primo disponibile per l'utente (non tutti li hanno tutti) */
+    font-family: 'Lato', 'Comic Sans MS', sans-serif ; /* per font con più parole, inserirli nelle "" */
+}
+
+h1{
+    font-family: "Times New Roman";
+    font-size: 50px;
+}   /* notare che funziona a cascata e quindi nonostante ho deciso un font nel body, poi lo posso modificare */
+
+li {
+    color: rgb(9, 139, 0);
+}
+
+
+img {
+    width: 400px;   /* se non inserisco 'height' fa la proporzione dei vecchi AxL con il numero che gli ho fornito */
+    height: 230px;
+    float: left;    /* tramite questa proprietà posso mettere immagini a dx o sx e il testo riempe tutta la parte rimanente al lato opposto */   
+    margin: 10px 25px 50px 20px;
+}
+
+.classe-sfondo-viola {  /* si riempe tutto rettangolo disponibile del tag (rettangolo) */
+    background-color:  violet;  /* per farlo su una singola parola, meglio usare <span>, se mi serve singolo posso usare ID */
+    width: 100px;
+}
+
+span {
+    background-color:  violet;
+
+}
+
+ul {
+    overflow: hidden;     /*quando un oggetto sfora i bordi, gli diciamo cosa fare*/
+    padding-left: 20px;   /*quanto spazio lascio tra le immagini e i pallini*/
+
+}
+
+.secondi {
+    margin-top: 300px;
+}
+
+
+#parole-dolci {
+    /* identificatore univoco, in modo che modifico solo quella parte di testo a cui ho assegnato l'ID */
+    font-weight: bold;
+}
+
+.grassetto-rosso {
+    font-weight: bolder;
+    color: red;
+}

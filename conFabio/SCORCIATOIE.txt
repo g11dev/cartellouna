@@ -1,0 +1,19 @@
+
+
+SPOSTARE BLOCCO TESTO = seleziono il testo, ['Alt' + freccettina]
+COPIA INCOLLA LI = seleziono il testo, ['Shift' + 'Alt' + freccettina]
+ 
+
+COMANDI LINUX (della shell) = ad esempio 'mv' per rinominare file -> "mv" + vecchio_nome + nuovo_nome
+
+Per ottenere manuale:
+- "man" + libreria
+- libreria + "-h"
+
+"touch" + nome_E_tipofile = creo file  
+"cat" + file.txt = cosa contiene 
+"nano" + file.txt = apre editor di testo 
+"strings" + file = mi ricava tutte e solo le stringhe del file 
+"grep" + 'parola' = scremiamo e teniamo solo 'parola'
+
+cmd1 | cmd2 = comandi concatenati -> esegue prima 1 e poi l'altro

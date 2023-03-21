@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');   /* importo il font lato direttamente nel file css */
+
+
+body {
+    font-family: Lato, sans-serif;
+}
+
+h1 {
+    font-size:50px;
+    color: green; 
+    font-weight: bold;
+}
+
+li {
+    font-size: 20px;
+
+} 
+
+.barrato {
+    text-decoration: line-through;
+    color: red;
+}

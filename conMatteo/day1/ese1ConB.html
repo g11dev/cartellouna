@@ -12,7 +12,7 @@
 <body>
 
     <div id="vueApp">
-        <h1> {{FullName}} </h1>
+        <h1> {{stampaNome}} </h1>
         <!-- id -> ci servirà per dire a View di portarsi li-->
 
         <!-- form method="get" @submit.prevent="computeFullname()" -> metodo alternativo -->
@@ -36,20 +36,19 @@
                 return {
                     nome: "",
                     cognome: "",
+                    full
                 }
 
             },
             methods: {
                 stampaNome() {
-                    this.name = name;
-                    this.cognome = cognome;
-
+                    return `${this.nome} ${this.cognome}`;
                 },
 
             },
             computed: {
                 fullName() {
-                    return `${this.name} ${this.cognome}`;
+                    return `${this.nome} ${this.cognome}`;
                 }
             },
         }).mount('#vueApp');    

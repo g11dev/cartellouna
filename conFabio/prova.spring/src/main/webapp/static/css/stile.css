@@ -1,0 +1,19 @@
+body {
+    font-size:20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+.disappari {
+    display: none; 
+}
+
+.appari {
+    display: flex;
+}
+
+p, li {
+    font-size: 12px;
+    color: red;
+}
