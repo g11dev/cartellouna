@@ -71,12 +71,17 @@ export default {
     </select>
   </label>
 
-  <!-- <FilterList :items="itemList" @item-selected="onItemSelected" /> -->
+  <FilterList :items="itemList" @item-selected="onItemSelected" >
   <!-- <FilterList :items="professors" @item-selected="onItemSelected" /> -->
   <!-- Copiando FilterList vengono 3 diversi componenti indipendenti, ognuno che accoglie data (se tolgo return la fz va su tutti e tre)-->
-  <FilterList :items="academians" @item-selected="onItemSelected">
-    <template>
+  <!-- <FilterList :items="academians" @item-selected="onItemSelected"> -->
+    <template v-slot:header>
+      <!-- v-slot=# -->
       <h3 style="color: red;">Academia</h3>
+    </template>
+    <template v-slot:#footer>  
+      <!-- uno slot vuoto lo capisce ma solo uno solo -->
+      <h1 style="color:green; background-color:black"> FOOTER</h1>
     </template>
   </FilterList>
   <!-- (:) l'abbiamo fatto ieri con l'input -->

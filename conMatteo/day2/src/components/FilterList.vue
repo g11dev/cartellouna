@@ -49,7 +49,8 @@ export default {
                 <!-- item -> rappresenta ciò che abbiamo cliccato -->
             </li>
         </ul>
-        <slot name="footer">
+        <slot name=#footer>
+
         </slot>
     </div>
 </template>
