@@ -1,0 +1,12 @@
+GET http://localhost:3000/listaUser/
+# SE http://localhost:3000/academians/1 -> prendo quello con "id:1" -> tipicamente nelle API rest, non si scrive "id:numero", di solito ->  risorsa/numId/sottoRisorsa/numId/...
+
+###
+# con 3 cancelletti si separano le richieste 
+
+DELETE http://localhost:3000/listaUsera
+
+{
+    "name": "Pippo",
+    "surname": "intruso"
+}

@@ -1,0 +1,32 @@
+{
+  "listaUser": [
+    {
+      "id": 1,
+      "name": "Danilo",
+      "surname": "Annunziata",
+      "role": "editore",
+      "enabled": true
+    },
+    {
+      "id": 1,
+      "name": "Danilo",
+      "surname": "Annunziata",
+      "role": "editor",
+      "enabled": true
+    },
+    {
+      "id": 1,
+      "name": "Danilo",
+      "surname": "Annunziata",
+      "role": "editor",
+      "enabled": true
+    },
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ]
+}
