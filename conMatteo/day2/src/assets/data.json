@@ -1,0 +1,17 @@
+{
+    "academians": [
+        { "id": 1, "name": "Danilo", "surname": "Annunziata" },
+        { "id": 2, "name": "Yousef", "surname": "Baioumy" },
+        { "id": 3, "name": "Giacomo", "surname": "Colombo" },
+        { "id": 4, "name": "Maxim", "surname": "Karlov" },
+        { "id": 5, "name": "Leonardo", "surname": "Ricci" },
+        { "id": 6, "name": "Italo", "surname": "Salas" },
+        { "id": 7, "name": "Angelo", "surname": "Vecchio" },
+        { "id": 8, "name": "Devid", "surname": "Zaina" }
+      ],
+      "professors": [
+        { "id": 1, "name": "Matteo", "surname": "Vergani" },
+        { "id": 2, "name": "Davide", "surname": "Pessina" },
+        { "id": 3, "name": "Marcello", "surname": "Larghi" }
+      ]
+}

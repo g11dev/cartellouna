@@ -1,7 +1,8 @@
 <script>
 export default {
-    emits: ['item-selected'],       //OUTPUT(@)
-    props: ['items'],               //INPUT(:)
+    emits: ['item-selected'],       //OUTPUT(@) 'nome dell'evento' (da figlio a padre(app))
+    props: ['items'],               //INPUT(:) 'nome della variabile' (da padre (App.vue) -> a figlio (componente))
+            //comanda il componente
     data() {
         return {
             //spostiamo la lista perchè vogliamo far si che ci permetta di centralizzare la fz filtro e usarla su qualsiasi lista
@@ -20,6 +21,7 @@ export default {
     methods: {
         onItemClick(item) {
             this.$emit('item-selected', item);
+            this.$
         }
     },
     watch: {
@@ -49,8 +51,8 @@ export default {
                 <!-- item -> rappresenta ciò che abbiamo cliccato -->
             </li>
         </ul>
-        <slot name=#footer>
-
+        <slot>
         </slot>
+        <!--  -->
     </div>
 </template>

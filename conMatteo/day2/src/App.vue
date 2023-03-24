@@ -1,5 +1,6 @@
 <script>
 import FilterList from '@/components/FilterList.vue';
+import axios from "axios";
 
 export default {
   components: {
@@ -7,21 +8,8 @@ export default {
   },
   data() {
     return {
-      academians: [
-        { name: "Danilo", surname: "Annunziata" },
-        { name: "Yousef", surname: "Baioumy" },
-        { name: "Giacomo", surname: "Colombo" },
-        { name: "Maxim", surname: "Karlov" },
-        { name: "Leonardo", surname: "Ricci" },
-        { name: "Italo", surname: "Salas" },
-        { name: "Angelo", surname: "Vecchio" },
-        { name: "Devid", surname: "Zaina" }
-      ],
-      professors: [
-        { name: "Matteo", surname: "Vergani" },
-        { name: "Davide", surname: "Pessina" },
-        { name: "Marcello", surname: "Larghi" },
-      ],
+      academians: [],
+      professors: [],
       selectAcademian: null,
       selectedList: null,
       itemList: [],
@@ -30,9 +18,6 @@ export default {
   computed: {
     computedAcademian() {
       return `${this.selectAcademian?.name} ${this.selectAcademian?.surname}`;
-    },
-    academianInList(i) {
-      return `${this.academian[i].name} ${this.academian[i].surname}`;
     }
   },
   methods: {
@@ -49,8 +34,47 @@ export default {
       } else {
         this.itemList = [];
       }
+    },
+    async fetchAcademians() {
+      try {
+        const resp = await axios.get('http://localhost:3000/academians');
+        //pesco dal host:3000 in cui risiede il file json
+        this.academians = resp.data;
+        //se faccio console.log(resp) -> printo la resp
+        // resp -> parola chiave che identifica risposta totale dal GET
+        // body della risposta che otteniamo dall'API (già PArsato -> non serve fare ".then" per parsarlo)
+      } catch (err) {
+        console.error(err);
+        if (err.response.status === 404) {
+          alert("Not Found!!!")
+        }
+        //normalmente si usa "err" al posto di log
+        //estraggo la proprietà "data" da resp
+      }
+    },
+    async fetchProfessors() {
+      try {
+        const resp = await axios.get('http://localhost:3000/professors');
+        this.professors = resp.data;
+      } catch (err) {
+        console.error(err);
+        if (err.response.status === 404) {
+          alert("Not Found!!!")
+        }
+
+      }
     }
+
   },
+  created()
+  //è una funzione scatenata dall'evento
+  //se è async lui, allora le await si aspettano pezzo per pezzo
+  //spezzettando le fz al suo interno e rendendo solo loro prese singolarmente async, loro sono autonome e non le stiamo aspettando
+  {
+    this.fetchAcademians();
+    this.fetchProfessors();
+
+  }
 }
 </script>
 
@@ -71,15 +95,15 @@ export default {
     </select>
   </label>
 
-  <FilterList :items="itemList" @item-selected="onItemSelected" >
-  <!-- <FilterList :items="professors" @item-selected="onItemSelected" /> -->
-  <!-- Copiando FilterList vengono 3 diversi componenti indipendenti, ognuno che accoglie data (se tolgo return la fz va su tutti e tre)-->
-  <!-- <FilterList :items="academians" @item-selected="onItemSelected"> -->
-    <template v-slot:header>
+  <FilterList :items="itemList" @item-selected="onItemSelected">
+    <!-- <FilterList :items="professors" @item-selected="onItemSelected" /> -->
+    <!-- Copiando FilterList vengono 3 diversi componenti indipendenti, ognuno che accoglie data (se tolgo return la fz va su tutti e tre)-->
+    <!-- <FilterList :items="academians" @item-selected="onItemSelected"> -->
+    <template v-slot:#header>
       <!-- v-slot=# -->
       <h3 style="color: red;">Academia</h3>
     </template>
-    <template v-slot:#footer>  
+    <template v-slot:#default>
       <!-- uno slot vuoto lo capisce ma solo uno solo -->
       <h1 style="color:green; background-color:black"> FOOTER</h1>
     </template>
@@ -89,3 +113,5 @@ export default {
     Hai cliccato su {{ computedAcademian }}
   </div>
 </template>
+
+

@@ -30,14 +30,13 @@ export default {
       this.user.enabled = enabled;
       this.listaUser.push(this.user);
     },
-    tutto()  {
-      postino(){
-        axios.post(`http://localhost:3000/listaUser/`, this.listaUser);
-      },
-      cancellaUser(id) {
-        axios.delete(`http://localhost:3000/listaUser/${id}`)
-      }
-}  },
+    postino(){
+      axios.post(`http://localhost:3000/listaUser/`, this.listaUser)
+    },
+    cancellaUser(id) {
+      axios.delete(`http://localhost:3000/listaUser/${id}`);
+    }
+  },
   computed: {
 
   }
@@ -72,7 +71,7 @@ export default {
     <label>Enabled: <input type="checkbox" v-model="enabled" />
     </label>
 
-    <label> <input type="button" value="add"  @click="tutto()" />
+    <label> <input type="button" value="add"  @click="postino()" />
     </label>
   </form>
 

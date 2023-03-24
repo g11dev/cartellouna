@@ -1,0 +1,16 @@
+GET http://localhost:3000/academians/
+# SE http://localhost:3000/academians/1 -> prendo quello con "id:1" -> tipicamente nelle API rest, non si scrive 
+    #tipo postman 
+#"id:numero", di solito ->  risorsa/numId/sottoRisorsa/numId/...
+
+
+GET http://localhost:3000/professors/
+###
+# con 3 cancelletti si separano le richieste 
+
+POST http://localhost:3000/academians
+
+{
+    "name": "Pippo",
+    "surname": "intruso"
+}
