@@ -79,7 +79,7 @@ export default {
 </script>
 
 
-<!-- DENTRO TEMPLATE -> VIEW -->
+<!-- DENTRO TEMPLATE -> VUE (la "vista") -->
 <template>
   <div>
     <h1>Esercizio 2</h1>

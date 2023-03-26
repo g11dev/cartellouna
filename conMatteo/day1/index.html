@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>1° file con Matteo</title>
 
 </head>
 
@@ -17,9 +17,10 @@
         <h2>
             {{ getFullName() }} <!-- se usiamo () -> cerca un metodo [da methods]   -->
             {{ fullName }} <!-- senza -> oggetto [da computed]    -->
+            il tuo nome è {{nome}}
         </h2>
-        <input type="button" value="Cambia nome" @click="setName('Franco')">
-        <!-- <input type="button" value="Cambia nome" v-on:click = "setName('Franco')" > -->
+        <input type="button" value="Cambia nome" @click="setName(scatola)">
+        <!-- <input type="button" value="Cambia nome" v-on:click = "setName('Franco')" >        -> click è un evento-->
         <!-- "v-on" = attributo tipico di Vue per dire su quale evento vuoi iscriverti-->
         <!-- v-on:azione ="metodo"       -> MAI SPAZIO DOPO 'v-on'-->
         <!-- ad oggi si rimpiazza tutto con "@" -->
@@ -33,7 +34,7 @@
             <!-- v-if=attivare e disattivare (con commento) -->
             <!-- v-show=mostrare e nascondere (senza commento)--> <!-- come ad esempio articoli... vedi di più-->
             Input:
-            <input type="text">
+            <input type="text" v-model="scatola">
             <!-- <input type="text" v-bind:disabled ="isInputEnabled"> -->
             <!-- v-bind = opposto del v-on (ascolta e applica modifica su ciò che noi ci bindiamo)-->
             <!-- a oggi si rimpiazza con ":"-->
@@ -42,7 +43,7 @@
         </label>
 
         <div>
-            <label for="">
+            <label>
                 Età
                 <input type="number" v-model="age">
                 <!-- "v-model" -> ascolta @input e va ad inserire il valore nella variabile "age" -->
@@ -66,11 +67,12 @@
             Genere:
             <select>
                 <!-- PER CREARE PARTE SOTTO-->
-                <option v-for="(gender,index) in genderList" :key="index" :value="gender.value"> {{ gender.label }}</option>
+                <option v-for="(gender,index) in genderList" :key="index" :value="gender.value"> {{ gender.label }}
+                </option>
                 <!-- con ":" MODIFICO il valore value (posso gestirlo dinamicamente)-->
                 <!-- :key -> serve per poter avere info da usare in css-->
-                    <!-- v-for -> ciclo per iterare lista (e in questo caso creare piu elementi option (come nelle righe sotto))  -->
-                    
+                <!-- v-for -> ciclo per iterare lista (e in questo caso creare piu elementi option (come nelle righe sotto))  -->
+
 
 
                 <!-- <option value="M">Maschio</option> -->
@@ -98,15 +100,16 @@
             data() {
                 return {
                     isInputEnabled: false, //per convenzione, nomi variabiliBooleani iniziano con "is"
+                    nome:'',
+                    scatola:'',
                     name: "Pippo",
                     cognome: "Pluto",
                     age: 0,
                     genderList: [
-                        {id:1, label:"Maschio", value:'M'},
-                        {id:2, label:"Femmina", value:'F'},
-                        {id:3, label:"Altro", value:'A'}
-                        
-                    ]
+                        { id: 1, label: "Maschio", value: 'M' },
+                        { id: 2, label: "Femmina", value: 'F' },
+                        { id: 3, label: "Altro", value: 'A' }
+                    ],
                 }
             },
             methods: {
@@ -114,8 +117,10 @@
                     return `${this.name} ${this.cognome}`;
                     //senza 'this' -> non stampa un cazzo perchè non esce dallo scope per cercare il valore
                 },
-                setName(name) {
-                    this.name = name;
+                setName(nome) {
+                    this.nome = nome;
+                    alert("il nome è cambiato in" + nome)
+                    //this da accesso all'attributo nello scope globale locale
                 },
                 toggleInput() {
                     this.isInputEnabled = !this.isInputEnabled;     //così viene sempre la condizione opposta a quella attuale 

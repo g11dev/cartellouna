@@ -1,0 +1,30 @@
+<h1>QUESTO è IL MIO PRIMO COMPONENTE!!!!</h1>
+
+<!-- CARD importata da Bootstrap -->
+<!-- <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1678954129535-9f0d186570ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1266&q=80" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+<div class="contenitore">
+    <div class="contenuto"> <!-- *ngIf -> quando True mostra il contenuto  -->
+        <h3 (click)="toggleMostra()"> clicca qui x toggleMostra</h3>
+        <hr>
+        <p  *ngIf="mostra"> AO A BELLO </p>
+    </div>
+</div>
+
+
+<div class="contenitore">
+    <div style="display: inline; width: 400px">
+        <h3 class="titolo" (click)="toggleMostra()">{{ depositoPrimo }} </h3>
+    </div>
+    <div *ngIf="mostra" class="contenuto">
+        <ng-content></ng-content>
+        <input type="button" value="cancella" class="btn btn-danger" (click)="cancellaItem()">
+    </div>
+</div>

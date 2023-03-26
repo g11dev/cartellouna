@@ -1,0 +1,60 @@
+<div>
+
+  <h1>{{getTitle()}}</h1>
+  <div>
+    <input [(ngModel)]="title" /> <!-- con ngModel faccio input e output da html a database -->
+    <!-- ngModel -> da possibilità di sovrascrivere parola contenuta nella variabile E nell'input -->
+  </div>
+  <div style="padding-bottom: 100px;">
+    <button type="button" (click)="allerto()" class="btn btn-warning">Alert Titolo </button>
+  </div>
+</div>
+
+<hr>
+
+<!-- COMPONENTE -->
+<h2>LISTA DEGLI ESERCIZI</h2>
+<div style="display:flex;">
+  <app-primo (eventoCancellaCreato)="cancellaEsercizio($event)" *ngFor="let ese of esercizi" [depositoPrimo]="ese"> 
+  </app-primo>
+  </div>
+  
+  <hr>
+  
+
+<!-- MOSTRA ESERCIZI -->
+<div>
+
+  <div>
+    <input [(ngModel)]="esercizio" /> <!-- con ngModel faccio input e output da html a database -->
+    <!-- ngModel -> da possibilità di sovrascrivere parola contenuta nella variabile E nell'input -->
+  </div>
+  <div>
+    <button type="button" (click)="aggiungiEsercizio()" class="btn btn-primary"> Aggiungi Esercizio </button>
+  </div>
+  <h2>{{esercizio}}</h2>
+  <div>
+    <label style="display:flex,; padding-top: 12px;"> LISTA ESERCIZI </label>
+    <ul>
+      <li style="
+    border: 2px solid green; width: 200px; font-size: larger;" *ngFor="let ese of esercizi"> {{ese}}
+        <button type="button" class="btn btn-danger" (click)="cancellaEsercizio(ese)">Cancella esercizio </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr size="50px">
+
+<!-- ESERIZIO INCREMENTA -->
+<div>
+  <div>
+    <h3 style="color: blueviolet; font-weight: 10px;"> {{conta}} </h3>
+  </div>
+
+  <div>
+    <button type="button" [disabled]="disabilita" (click)="incrementa()" class="btn btn-success"> Aumenta numero
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1 senza bottone</title>
+
+</head>
+
+<body>
+
+    <div id="vueApp">
+        <!-- id -> ci servirà per dire a View di portarsi li-->
+        <h2> `${nome} ${cognome}`</h2>
+        <div>
+            <label for="">Nome:
+                <input id="nome" type="text" v-model="nome">
+            </label>
+        </div>
+        <div>
+            <label for="">Cognome:
+                <input id="cognome" type="text" v-model="cognome">
+            </label>
+        </div>
+        <div>
+            <label for="">Cognome:
+                <input id="bottone" type="button" @click="inserisci(" nome","cognome")">
+            </label>
+        </div>
+
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    nome: "",
+                    cognome: "",
+                }
+            },
+            methods: {
+                inserisci(nome, cognome) {
+                    this.nome = nome;
+                    this.cognnome = cognome;
+                }
+            },
+            computed: {
+                computeFullName() {
+                    return `${this.nome} ${this.cognome}`;
+                }
+            }
+        }
+        ).mount('#vueApp');    
+    </script>
+
+</body>
+
+</html>

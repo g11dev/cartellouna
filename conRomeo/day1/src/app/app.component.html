@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+<div>
+  <input [(ngModel)]="title" />    
+</div>
+
+
+<button class="btn btn-primary" (click)="aggiungi()">Add Personaggio</button>
+
+<div style="display: flex">
+    <app-accordion (eventoCancella)="cancella($event)" *ngFor="let personaggio of personaggi" [titolo]="personaggio"> 
+    </app-accordion>
+</div>
+
+  <!-- <app-accordion [titolo]="title"> -->
+

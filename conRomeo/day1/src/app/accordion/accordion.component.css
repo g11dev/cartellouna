@@ -1,0 +1,16 @@
+.contenitore{
+    border: 10px double #d5a44a;
+    margin-bottom: 100px;
+    width:200px;
+}
+
+.titolo{
+    background-color: rgb(134, 202, 65);
+    color: white;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.contenuto{
+    padding: 10px;
+}

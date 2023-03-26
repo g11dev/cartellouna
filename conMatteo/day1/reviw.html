@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBA MIA</title>
+
+</head>
+
+<body>
+
+    <div id="vueApp">
+        <h1>v-model: collega input da html->variabile e output in html </h1>
+        <h1>Il mio nome è {{nome}}</h1>
+        <input type="text"  :value="scatola">
+        <button type="button" @click="setName(scatola)">Imposta nome</button>
+
+        <div>
+            <p> {{age}}</p>
+            <input type="number" v-model="age">
+            <!-- con @input -> si crea "$event" che contiene tutte le cose scritte dentro ->  -->
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<script>
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                scatola:",",
+                nome: "",
+                cognome: "",
+                age: 0
+            }
+        },
+        methods: {
+            setName(i) {
+                this.nome = i;
+            },
+            computed: {
+
+            }
+        },
+    }
+    ).mount('#vueApp');    
+</script>
+
+</body>
+
+</html>
