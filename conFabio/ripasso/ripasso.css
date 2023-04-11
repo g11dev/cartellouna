@@ -1,0 +1,14 @@
+span {
+    font-weight: bolder;
+    color: rgb(20, 98, 161);
+}
+
+.indentazione {
+    padding-left: 30px;
+}
+
+h4 {
+    padding-bottom: 0;
+    margin: 0;
+    border: 0;
+}
