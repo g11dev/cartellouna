@@ -1,6 +1,6 @@
 html {
     box-sizing: border-box;
-    /*con border-box, includo padding e borderl nel conto totale di width e height*/
+    /*con border-box, includo padding e borde nel conto totale di width e height*/
     min-height: 100vh;
     /*altezza della finestara*/
     display: flex;

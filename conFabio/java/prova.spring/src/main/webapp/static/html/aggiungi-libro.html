@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AGGIUNGI UN LIBRO </title>
+    <link rel=stylesheet type = text/css href="\static\css\stile.css">
+    <script src = "/static/js/aggiungi-libro-script.js" type="text/javascript" defer> </script>
+
+</head>
+
+<body>
+
+<H1> AGGIUNGI UN LIBRO </H1>
+
+<form action="/addBook" method=GET>                                     <!-- ACTION -> percorso in cui vengono inseriti i parametri dell'input in "MODEL AND VIEW add book-->
+    <label for ="campo-titolo"> Titolo: </label>
+    <input id="campo-titolo" type="text" name="titolo" value="">                <!--name -> campo che è scritto nel controller (del metodo della pagina html che sto scrivendo)-->
+    <label for ="campo-autore"> Autore: </label>                                <!-- <label "for"> lo collego a <input "id"> -->
+    <input id="campo-autore" type="text" name="autore" value="">                <!-- "type" -> tipo di dato accettato dall'input -->
+    <label for ="campo-anno"> Anno: </label>
+    <input id="campo-anno" type="number" name="anno" value="">                  <!-- "value" il valore che c'è all'interno della casellina -->
+    <input class ="classe" type="submit" value="aggiungi">
+    <input type="reset" value="reset">
+
+
+</form>
+
+</body>
+</html>

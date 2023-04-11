@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @Autowired                                      //per fare DEPENDENCES INJECTION
+    @Autowired                                      //per fare DEPENDENCIES INJECTION
     BookServices bs;                                // tramite la classe "BookServices" (che ho creato) -> variabile che punta istanza (che poi usero per accedere ai metodi)
     @RequestMapping(value = "/")                    // quello che c'è appena dopo "il nome del sito/indirizzo del server"
     public ModelAndView requestBooks() {

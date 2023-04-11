@@ -23,7 +23,7 @@
 
 <p> 
 
-<#if libri?has_content>        <!-- 'has_content'-> fornito da free market --> 
+<#if libri?has_content>        <!-- 'has_content'-> fornito da free markeR --> 
     <p> Ci sono #{libri?size} libri nell'elenco </p>
 <#else> 
     <p> Non ci sono libri nello scaffale </p> 
@@ -38,3 +38,5 @@
 
 </body>
 </html>
+
+

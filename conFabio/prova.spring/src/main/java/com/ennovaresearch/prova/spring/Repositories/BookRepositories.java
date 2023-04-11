@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface BookRepositories  extends JpaRepository <Book, Long> {          // long -> stesso tipo dell'ID   |   book -> classe
+public interface BookRepositories  extends JpaRepository<Book, Long> {          // long -> stesso tipo dell'ID   |   book -> classe
     // una repository è una classe che estende questa
         // i metodi che chiamo qua dentro è perchè non sono chiamabili direttamente da services(e ovunque)
         // metodi complicati da inserire qui, nell'altro caso ci sono già di base
